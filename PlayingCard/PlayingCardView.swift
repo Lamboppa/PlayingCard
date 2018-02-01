@@ -8,17 +8,15 @@
 
 import UIKit
 
-@IBDesignable  //to show card in main
-class PlayingCardView: UIView {
+@IBDesignable
+class PlayingCardView: UIView
+{
     
-    @IBInspectable   //put @IBInspectable before vars
+    //put @IBInspectable before vars
     
-    //redraw: didSet
-    var rank: Int = 5 { didSet { setNeedsDisplay(); setNeedsLayout() } }
-    @IBInspectable
-    var suit: String = "♥️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
-    @IBInspectable
-    var isFaceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable var rank: Int = 5 { didSet { setNeedsDisplay(); setNeedsLayout() } }   //redraw: didSet
+    @IBInspectable var suit: String = "♥️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable var isFaceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
     //setNeedsDisplay() calls func draw(), setNeedsLayout() calls func layoutSubviews()
     
     var faceCardScale: CGFloat = SizeRatio.faceCardImageSizeToBoundsSize { didSet { setNeedsDisplay() } }
@@ -144,7 +142,6 @@ class PlayingCardView: UIView {
 //        path.stroke()
 //        path.fill()
 //    }
-        
         let roundedRect = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
         roundedRect.addClip()
         UIColor.white.setFill()
